@@ -7,24 +7,30 @@ using namespace std;
 
 int main() {
 
-    float math;
-    float english;
-    float science;
-    float economics;
-    float electives;
-    float chemistry;
+    float subjects [10];
+    float subjectsCount;
     float result;
-
+    int counter = 0;
     cout << "welcome to the GPA calculator: \n";
-    cout << "please insert the 6 subjects so i can tell your GPA\n";
-    cin >> math >> english >> science >> economics >> electives >> chemistry;
-    result = math + english + science + economics + electives + chemistry;
-    result = result / 6;
+
+    do {
+        cout << "please insert how many subjects your taking in school Max is 10 subjects :\n ";
+        cin >> subjectsCount;
+    } while (subjectsCount > 10);
+
+
+    for (int x = 0; x < subjectsCount; x++) {
+        counter++;
+        cout << "please enter Subject score (" << counter << "): " << endl;
+        cin >> subjects [x];
+        result += subjects [x];
+    }
+
+    result = result / subjectsCount;
 
     if (result >= 97) {
         cout << "score is :" << result << " |Grade: A+| " << "|GPA: 4.0|" << endl;
-    }
-    else if (result >= 93) {
+    } else if (result >= 93) {
         cout << "score is :" << result << " |Grade:  A| " << "|GPA: 4.0|" << endl;
     } else if (result >= 90) {
         cout << "score is :" << result << " |Grade: A-|" << "|GPA: 3.7|" << endl;
@@ -40,12 +46,9 @@ int main() {
         cout << "score is :" << result << " |Grade: C|" << "|GPA: 2.0|" << endl;
     } else if (result >= 70) {
         cout << "score is :" << result << " |Grade: C-| " << "|GPA: 1.7|" << endl;
-    }
-
-    else if (result >= 67) {
+    } else if (result >= 67) {
         cout << "score is :" << result << "  Grade: D+ " << "GPA: 1.3" << endl;
-    }
-    else if (result >= 65) {
+    } else if (result >= 65) {
         cout << "score is" << result << "Grade: D " << "GPA: 1.0" << endl;
     } else if (result < 65) {
         cout << "score is :" << result << "  Grade: F" << "GPA: 0.0" << endl;
